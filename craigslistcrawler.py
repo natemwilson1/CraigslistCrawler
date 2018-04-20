@@ -33,9 +33,8 @@ for count in range(0, 3000, 120):
             link = link.get('href')
             results.append((price, location, title, link))
 
-else:
-    df = pd.DataFrame(results, columns=['price','location', 'title', 'link',])
-    bypricedf = df[df.price <= max_price]
-    sorted_df = bypricedf.sort_values(by = 'price')
-    sorted_df.to_csv('craigslist.csv', index = False, encoding = 'utf-8')
-    print(input('I created a CSV file in your working directory with your results!\npress enter to close!'))
+df = pd.DataFrame(results, columns=['price','location', 'title', 'link',])
+bypricedf = df[df.price <= max_price]
+sorted_df = bypricedf.sort_values(by = 'price')
+sorted_df.to_csv('craigslist.csv', index = False, encoding = 'utf-8')
+print(input('I created a CSV file in your working directory with your results!\npress enter to close!'))
